@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/btn_retry"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="?selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageViewEmpty"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_cloud_off" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="4dp"
+        android:gravity="center"
+        android:text="@string/empty_screen"
+        android:textColor="@color/gray" />
+
+</LinearLayout>

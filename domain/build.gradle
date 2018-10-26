@@ -1,0 +1,20 @@
+apply plugin: 'kotlin'
+
+
+dependencies {
+
+    def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+    implementation domainDependencies.javaxAnnotation
+    implementation domainDependencies.javaxInject
+    implementation domainDependencies.rxJava
+
+    testImplementation domainTestDependencies.mockito
+    testImplementation domainTestDependencies.assertj
+    testImplementation domainTestDependencies.junit
+
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

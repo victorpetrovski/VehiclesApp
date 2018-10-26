@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "victorpetrovski.com.victortaxi"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", '"https://fake-poi-api.mytaxi.com/"'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        dexInProcess = false
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+kapt {
+    correctErrorTypes = true
+    generateStubs = true
+}
+
+
+dependencies {
+
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+
+    implementation project(':domain')
+    implementation project(':data')
+
+
+    implementation presentationDependencies.constraintLayout
+
+    implementation presentationDependencies.javaxAnnotation
+
+    //implementation presentationDependencies.kotlin
+    implementation presentationDependencies.javaxInject
+    implementation presentationDependencies.rxKotlin
+    implementation presentationDependencies.androidAnnotations
+    implementation presentationDependencies.androidSupportV4
+    implementation presentationDependencies.androidSupportV13
+    implementation presentationDependencies.appCompatV7
+    implementation presentationDependencies.supportRecyclerView
+    implementation presentationDependencies.supportDesign
+    implementation presentationDependencies.timber
+    implementation presentationDependencies.rxAndroid
+    implementation presentationDependencies.glide
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerSupport
+    implementation presentationDependencies.cardView
+    implementation presentationDependencies.googleMaps
+
+    kapt presentationDependencies.daggerCompiler
+    kapt presentationDependencies.daggerProcessor
+    //implementation "org.jetbrains.kotlin:kotlin-reflect:1.2.60"
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.kotlinJUnit
+    testImplementation presentationTestDependencies.mockito
+    testImplementation presentationTestDependencies.assertj
+    testImplementation presentationTestDependencies.archTesting
+}
+apply plugin: 'kotlin-android-extensions'

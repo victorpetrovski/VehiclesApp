@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_list"
+        android:title="@string/hamburg_list"
+        android:icon="@drawable/ic_list"
+        />
+
+
+    <item
+        android:id="@+id/action_map"
+        android:title="@string/map"
+        android:icon="@drawable/ic_map"
+        />
+
+</menu>
